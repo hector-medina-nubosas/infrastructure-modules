@@ -13,7 +13,7 @@ variable "ip_range" {
     type = string
 }
 
-variable "project" {
-    description = "Project attached to the VPC."
+variable "project_id" {
+    description = "Project id attached to the VPC."
     type = string
 }

@@ -14,7 +14,7 @@ resource "digitalocean_vpc" "vpc" {
 }
 
 resource "digitalocean_project_resources" "project_vpc" {
-  project = var.project
+  project = var.project_id
   resources = [
     digitalocean_vpc.vpc.urn
   ]
