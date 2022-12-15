@@ -27,3 +27,8 @@ variable "project_id" {
     description = "Project ID to attach the server to."
     type = string
 }
+
+variable "vpc_id" {
+    description = "VPC id to attach the server to."
+    type = string
+}
