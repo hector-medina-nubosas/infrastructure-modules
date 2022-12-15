@@ -12,3 +12,10 @@ resource "digitalocean_vpc" "vpc" {
   region   = var.region
   ip_range = var.ip_range
 }
+
+resource "digitalocean_project_resources" "project_vpc" {
+  project = var.project
+  resources = [
+    digitalocean_vpc.vpc.urn
+  ]
+}

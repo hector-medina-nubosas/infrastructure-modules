@@ -12,3 +12,8 @@ variable "ip_range" {
     description = "IP range of the VPC."
     type = string
 }
+
+variable "project" {
+    description = "Project attached to the VPC."
+    type = string
+}
