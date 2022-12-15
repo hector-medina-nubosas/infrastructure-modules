@@ -8,7 +8,7 @@ terraform {
 }
 
 resource "digitalocean_vpc" "vpc" {
-  name     = "example-project-network"
-  region   = "nyc3"
-  ip_range = "10.10.10.0/24"
+  name     = var.name
+  region   = var.region
+  ip_range = var.ip_range
 }
