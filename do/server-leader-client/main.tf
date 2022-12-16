@@ -7,6 +7,10 @@ terraform {
     }
 }
 
+provider "digitalocean" {
+    token = "${var.do_token}"
+}
+
 resource "digitalocean_droplet" "server_leader_client" {
     image = var.image
     name = var.name

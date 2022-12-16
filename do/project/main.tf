@@ -7,6 +7,10 @@ terraform {
     }
 }
 
+provider "digitalocean" {
+    token = "${var.do_token}"
+}
+
 resource "digitalocean_project" "project" {
     name = var.name
     description = var.description

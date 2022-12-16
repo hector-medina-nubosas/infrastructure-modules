@@ -17,3 +17,5 @@ variable "project_id" {
     description = "Project id attached to the VPC."
     type = string
 }
+
+variable "do_token" {}

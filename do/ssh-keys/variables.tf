@@ -5,3 +5,5 @@ variable "name" {
 variable "public-ssh-key-file" {
   description = "Public ssh key file"
 }
+
+variable "do_token" {}

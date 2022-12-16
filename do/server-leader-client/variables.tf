@@ -32,3 +32,5 @@ variable "vpc_id" {
     description = "VPC id to attach the server to."
     type = string
 }
+
+variable "do_token" {}

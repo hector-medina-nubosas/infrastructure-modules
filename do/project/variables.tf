@@ -30,3 +30,5 @@ variable "is_default" {
     type = bool
     default = false
 }
+
+variable "do_token" {}

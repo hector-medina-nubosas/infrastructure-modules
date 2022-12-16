@@ -7,6 +7,9 @@ terraform {
     }
 }
 
+provider "digitalocean" {
+    token = "${var.do_token}"
+}
 
 resource "digitalocean_ssh_key" "ssh-key" {
     name = var.name
