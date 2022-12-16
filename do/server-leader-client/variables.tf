@@ -20,7 +20,6 @@ variable "size" {
 
 variable "ssh_keys_fingerprint" {
     description = "Array of SSH public key to allow remote connections."
-    type = list(string)
 }
 
 variable "project_id" {
