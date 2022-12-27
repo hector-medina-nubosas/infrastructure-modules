@@ -9,7 +9,7 @@ python3 -m pip install ansible
 # Install git
 apt install git -y
 # Run ansible playbook to install and configure nomad and dependencies.
-ansible-pull -U https://github.com/hector-medina-nubosas/ansible2.git nomad/nomad-${ server_role }.yml %{ if server_join != null  } --extra-vars "\"server_join=${server_join}\"" %{ endif }
+ansible-pull -U https://github.com/hector-medina-nubosas/ansible2.git nomad/nomad-${ server_role }.yml %{ if server_join != null  } --extra-vars "server_join=${server_join}" %{ endif }
 
 # root@server-leader-client:~# cat install.sh install-nomad.sh install-docker.sh 
 # ./install-nomad.sh
