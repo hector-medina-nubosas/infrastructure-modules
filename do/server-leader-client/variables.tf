@@ -33,4 +33,9 @@ variable "vpc_id" {
     type = string
 }
 
+variable "server_role" {
+    description = "Server nomad role. Values: [ server-client, server, client ]"
+    type = string
+}
+
 variable "do_token" {}

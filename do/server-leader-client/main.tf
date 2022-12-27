@@ -17,7 +17,9 @@ resource "digitalocean_droplet" "server_leader_client" {
     region = var.region
     size = var.size
     ssh_keys = var.ssh_keys_fingerprint
-    user_data = "${file("${path.module}/init.sh")}"
+    user_data = "${templatefile("${path.module}/init.sh", {
+      server_role = var.server_role
+    })}"
     vpc_uuid = var.vpc_id
 }
 
