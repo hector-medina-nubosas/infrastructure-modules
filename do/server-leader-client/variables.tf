@@ -38,4 +38,10 @@ variable "server_role" {
     type = string
 }
 
+variable "server_join" {
+    description = "Array of servers IPs for connection to the cluster. "
+    type = list(string)
+    default = null
+}
+
 variable "do_token" {}
