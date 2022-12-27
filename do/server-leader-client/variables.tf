@@ -18,7 +18,7 @@ variable "size" {
     type = string
 }
 
-variable "ssh_keys_fingerprint" {
+variable "ssh_keys_fingerprints" {
     description = "Array of SSH public key to allow remote connections."
     type = list(string)
 }
