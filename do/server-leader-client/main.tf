@@ -20,7 +20,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     user_data = "${templatefile("${path.module}/init.sh", {
       server_role = var.server_role,
       # server_join = "[ ${join(", ", [for ip in var.server_join : format("%q", ip)])} ]" 
-      server_join = jsondecode(var.server_join)
+      server_join = jsondecode("[ ${join(", ", [for ip in var.server_join : format("%q", ip)])} ]")
     })}"
     vpc_uuid = var.vpc_id
 }
