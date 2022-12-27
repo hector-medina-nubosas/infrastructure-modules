@@ -11,6 +11,12 @@ provider "digitalocean" {
     token = "${var.do_token}"
 }
 
+server_join_json = jsonencode({
+  server_join = {
+    value = var.server_join
+  }
+})
+
 resource "digitalocean_droplet" "server_leader_client" {
     image = var.image
     name = var.name
@@ -20,7 +26,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     user_data = "${templatefile("${path.module}/init.sh", {
       server_role = var.server_role,
       # server_join = "[ ${join(", ", [for ip in var.server_join : format("%q", ip)])} ]" 
-      server_join = jsonencode(var.server_join)
+      server_join = server_join_json
     })}"
     vpc_uuid = var.vpc_id
 }
