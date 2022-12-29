@@ -23,7 +23,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     ssh_keys = var.ssh_keys_fingerprints
     user_data = "${templatefile("${path.module}/init.sh", {
       server_role = var.server_role,
-      server_join = locals.server_join
+      server_join = local.server_join
     })}"
     vpc_uuid = var.vpc_id
 }
