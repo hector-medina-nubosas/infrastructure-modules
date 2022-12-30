@@ -15,8 +15,7 @@ locals {
   server_join = "${var.server_join == null ? null : jsonencode({server_join = {value = var.server_join}})}"
 }
 
-resource "random_id" "server" {
-  byte_length = 8
+resource "random_uuid" "test" {
 }
 
 resource "digitalocean_droplet" "server_leader_client" {
@@ -24,7 +23,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     count = var.num_instances
 
     image = var.image
-    name = format("%s-%s", var.name, "${random_id.server.hex}")
+    name = format("%s-%s", var.name, "${random_uuid.test.result}")
     region = var.region
     size = var.size
     ssh_keys = var.ssh_keys_fingerprints
