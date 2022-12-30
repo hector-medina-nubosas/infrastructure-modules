@@ -37,5 +37,7 @@ resource "digitalocean_droplet" "server_leader_client" {
 
 resource "digitalocean_project_resources" "project-resources" {
   project = var.project_id
-  resources = digitalocean_droplet.server_leader_client.urn[*]
+  resources = [
+    digitalocean_droplet.server_leader_client.urn[count.index]
+  ]
 }
