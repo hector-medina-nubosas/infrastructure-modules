@@ -36,12 +36,23 @@ variable "vpc_id" {
 variable "server_role" {
     description = "Server nomad role. Values: [ server-client, server, client ]"
     type = string
+
+    validation {
+        condition     = contains(["server", "client", "server-client"], var.server_role)
+        error_message = "Allowed values for server_role are \"server\", \"client\", or \"server-client\"."
+    }
 }
 
 variable "server_join" {
     description = "Array of servers IPs for connection to the cluster. "
     type = list(string)
     default = null
+}
+
+variable "num_instances"{
+    description = "Number of resource that will be created."
+    type = number
+    default = 1
 }
 
 variable "do_token" {}
