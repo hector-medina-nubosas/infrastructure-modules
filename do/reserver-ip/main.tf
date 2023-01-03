@@ -7,6 +7,10 @@ terraform {
     }
 }
 
+provider "digitalocean" {
+    token = "${var.do_token}"
+}
+
 resource "digitalocean_reserved_ip" "public_ip" {
   region = var.region
 }
