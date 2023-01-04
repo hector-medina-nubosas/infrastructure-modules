@@ -33,10 +33,11 @@ resource "digitalocean_droplet" "server_leader_client" {
     })}"
     vpc_uuid = var.vpc_id
 
+    # Wait until provisioning finish.
     provisioner "remote-exec" {
       connection {
         private_key = "${file("~/.ssh/id_ed25519")}"
-        host = self.ipv4_address
+        host = self.ipv4_address_private
       }
       inline = [
           "while [ $(cloud-init status | awk '{print $2}') != done ]; do  sleep 1; done"
