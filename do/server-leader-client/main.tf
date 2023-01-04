@@ -32,6 +32,12 @@ resource "digitalocean_droplet" "server_leader_client" {
       server_join = local.server_join
     })}"
     vpc_uuid = var.vpc_id
+
+    provisioner "remote-exec" {
+      inline = [
+          "cloud-init status --wait"
+      ]
+    }
 }
 
 resource "digitalocean_project_resources" "project-resources" {
