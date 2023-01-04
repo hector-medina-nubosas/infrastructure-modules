@@ -35,8 +35,7 @@ resource "digitalocean_droplet" "server_leader_client" {
 
     provisioner "remote-exec" {
       connection {
-        user = "health_check"
-        password = "health_check"
+        private_key = "${{ secrets.PRIVATE_KEY }}"
         host = self.ipv4_address
       }
       inline = [
