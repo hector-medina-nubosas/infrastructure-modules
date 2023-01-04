@@ -34,6 +34,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     vpc_uuid = var.vpc_id
 
     connection {
+      password = "health_check"
       host = self.ipv4_address_private
     }
 
