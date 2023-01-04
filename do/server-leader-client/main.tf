@@ -33,13 +33,12 @@ resource "digitalocean_droplet" "server_leader_client" {
     })}"
     vpc_uuid = var.vpc_id
 
-    connection {
-      user = "health_check"
-      password = "health_check"
-      host = self.ipv4_address
-    }
-
     provisioner "remote-exec" {
+      connection {
+        user = "health_check"
+        password = "health_check"
+        host = self.ipv4_address
+      }
       inline = [
           "while [ $(cloud-init status | awk '{print $2}') != done ]; do  sleep 1; done"
       ]
