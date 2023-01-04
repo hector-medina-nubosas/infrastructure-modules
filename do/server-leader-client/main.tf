@@ -33,8 +33,14 @@ resource "digitalocean_droplet" "server_leader_client" {
     })}"
     vpc_uuid = var.vpc_id
 
-    provisioner "local-exec" {
-      command = "cloud-init status --wait"
+    connection {
+      host = self.ipv4_address_private
+    }
+
+    provisioner "remote-exec" {
+      inline = [
+          "cloud-init status --wait"
+      ]
     }
 }
 
