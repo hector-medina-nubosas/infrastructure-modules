@@ -37,7 +37,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     provisioner "remote-exec" {
       connection {
         private_key = "${file("~/.ssh/id_ed25519")}"
-        host = self.ipv4_address_private
+        host = self.ipv4_address
       }
       inline = [
           "while [ $(cloud-init status | awk '{print $2}') != done ]; do  sleep 1; done"
