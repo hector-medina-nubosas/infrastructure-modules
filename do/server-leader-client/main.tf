@@ -35,7 +35,7 @@ resource "digitalocean_droplet" "server_leader_client" {
 
     provisioner "remote-exec" {
       connection {
-        private_key = "${{ secrets.PRIVATE_KEY }}"
+        private_key = "${file("~/.ssh/id_ed25519")}"
         host = self.ipv4_address
       }
       inline = [
