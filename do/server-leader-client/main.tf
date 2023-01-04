@@ -39,7 +39,7 @@ resource "digitalocean_droplet" "server_leader_client" {
 
     provisioner "remote-exec" {
       inline = [
-          "cloud-init status --wait"
+          "while [ $(cloud-init status | awk '{print $2}') != done ]; do  sleep 1; done"
       ]
     }
 }
