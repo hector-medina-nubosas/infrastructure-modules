@@ -34,9 +34,7 @@ resource "digitalocean_droplet" "server_leader_client" {
     vpc_uuid = var.vpc_id
 
     provisioner "local-exec" {
-      inline = [
-          "cloud-init status --wait"
-      ]
+      command = "cloud-init status --wait"
     }
 }
 
